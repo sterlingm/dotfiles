@@ -1,0 +1,8 @@
+
+xcompmgr &
+
+(sleep 1s && nitrogen --restore) &
+
+(sleep 1s && tint2) &
+
+(sleep 1s && dropboxd) &
