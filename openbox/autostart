@@ -5,4 +5,6 @@ xcompmgr &
 
 (sleep 1s && tint2) &
 
+(sleep 1s && conky) &
+
 (sleep 1s && dropboxd) &
