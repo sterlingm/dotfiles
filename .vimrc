@@ -68,6 +68,9 @@ set incsearch
 " Sets the amount of lines to have above or below the cursor at all times
 set scrolloff=2
 
+" Set the number of text columns to use before wrapping line
+set columns=80
+
 
 "-----Colemak remappings-----"
 " Remap the scrolling keys for colemak
