@@ -75,6 +75,7 @@ set columns=80
 "-----Colemak remappings-----"
 " Remap the scrolling keys for colemak
 noremap n j|noremap e k|noremap i l
+noremap gn gj|noremap ge gk
 
 " Remap s/S to i/I  
 noremap s i|noremap S I
