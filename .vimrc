@@ -69,7 +69,7 @@ set incsearch
 set scrolloff=2
 
 " Set the number of text columns to use before wrapping line
-set columns=80
+" set columns=80
 
 
 "-----Colemak remappings-----"

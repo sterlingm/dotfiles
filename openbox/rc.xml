@@ -312,17 +312,17 @@
         <direction>down</direction>
       </action>
     </keybind>
-    <!-- Keybindings for running applications -->
-    <!-- <keybind key="W-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Konqueror</name>
-        </startupnotify>
-        <command>kfmclient openProfile filemanagement</command>
-      </action>
-    </keybind> -->
+    
+    
+    
+    <!-- ================================================= -->
+    <!-- ================================================= -->
+    <!-- ================================================= -->
     <!-- Personal keybindings -->
+    <!-- ================================================= -->
+    <!-- ================================================= -->
+    <!-- ================================================= -->
+    
     <!-- Open terminal -->
     <keybind key="C-A-t">
       <action name="Execute">
@@ -353,7 +353,27 @@
         <height>100%</height>
       </action>
     </keybind>
+    <!-- Maximize window -->
+    <keybind key="S-C-Up">
+      <action name="Maximize"/>
+    </keybind>
+    <!-- Unmaximize window -->
+    <keybind key="S-C-Down">
+      <action name="Unmaximize"/>
+    </keybind>
+
+    <!-- ================================================= -->
+    <!-- ================================================= -->
+    <!-- ================================================= -->
+    <!-- End Personal keybindings -->
+    <!-- ================================================= -->
+    <!-- ================================================= -->
+    <!-- ================================================= -->
+  
+  
   </keyboard>
+    
+  
   <mouse>
     <dragThreshold>1</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
