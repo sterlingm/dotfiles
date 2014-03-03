@@ -1,13 +1,26 @@
-" Allows Vim-related packages in Debian to work
-runtime! debian.vim
-
 " debian.vim sets 'nocompatible'. Setting 'compatible' changes numerous
 " options, so any other options should be set AFTER explicitly setting 'compatible'.
 " Set nocompatible for everything to enforce this
 set nocompatible
+filetype off
 
-" When we split a window, make sure we can write to that file
-set noreadonly
+" Set runtime path to include vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+" Install youcompleteme
+Bundle 'Valloric/youcompleteme'
+
+
+" detect file type
+filetype plugin indent on
+
+" Allows Vim-related packages in Debian to work
+runtime! debian.vim
+
 
 " Set highlighting for syntax
 if has("syntax")
@@ -18,15 +31,11 @@ endif
 colorscheme elflord 
 
 
-" detect file type
-filetype on
-filetype plugin on
-
+" When we split a window, make sure we can write to that file
+set noreadonly
 
 " If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
 set background=dark
-
 
 " Make the finding feature not worry about case until you use capital letter
 set ignorecase
@@ -72,29 +81,46 @@ set scrolloff=2
 " set columns=80
 
 
-"-----Colemak remappings-----"
-" Remap the scrolling keys for colemak
-noremap n j|noremap e k|noremap i l
-noremap gn gj|noremap ge gk
-
-" Remap s/S to i/I  
-noremap s i|noremap S I
-
-" Remap k/K to n/N
-noremap k n|noremap K N
-
-
 
 " Options for auto completion
 set completeopt=menuone,menu,longest,preview
 
 
-
+" ================= Configure Taglist =================
 " Lets the tag list plugin use ctags
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+
+" Make Taglist split the window horizontally
+let Tlist_Use_Horiz_Window = 1
+
+" Set the Tlist window height to be half of the overall window height
+" This lets the NERDTree and Taglist share half of the vsplit window space
+" To make the Taglist window be half of the split size, you must also change in taglist.vim in if block "if g:Tlist_Use_Horiz_Window" (~ line 1287), let win_dir = 'botright' to let win_dir = 'rightb'. 'botright' will make it take over the bottom of the entire vim window
+let Tlist_WinHeight = winheight(0) / 2
+let Tlist_WinWidth = winwidth(0) / 2
+
+
+
+
+
+
+" ================= Configure YouCompleteMe =================
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/cpp/ycm/.ycm_extra_conf.py'
+
+" This represses the confirmation of loading a .ycm_extra_conf file.
+" It should probably be left alone, but it is annoying to always confirm when
+" working on my own projects everyday.
+let g:ycm_confirm_extra_conf = 1
+
+
+
+
+
+" ================= Key Bindings ================= "
+
 " Build tags for current directory with Ctrl-F12
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
-
 
 " Create a command to toggle NERDTree and TlistToggle at the same time
 com TT NERDTreeToggle | TlistToggle
@@ -102,11 +128,16 @@ com TT NERDTreeToggle | TlistToggle
 " Map a key to the TT command
 noremap <F6> :TT<cr>
 
-" Make Taglist split the window horizontally
-let Tlist_Use_Horiz_Window = 1
+  " ********** Colemak remappings ********** "
+    " Remap the scrolling keys for colemak
+    noremap n j|noremap e k|noremap i l
+    noremap gn gj|noremap ge gk
 
-" Set the Tlist window height to be half of the overall window height
-" This lets the NERDTree and Taglist share half of the vsplit window space
-" To make the Taglist window be half of the split size, you must also change in taglist.vim in if block "if g:Tlist_Use_Horiz_Window" (~ line 1350), let win_dir = 'bo' to let win_dir = 'rightb'. 'bo' will make it take over the bottom of the entire vim window
-let Tlist_WinHeight = winheight(0) / 2
+    " Remap s/S to i/I  
+    noremap s i|noremap S I
+
+    " Remap k/K to n/N
+    noremap k n|noremap K N
+
+  " **************************************** "
 
