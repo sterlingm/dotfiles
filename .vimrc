@@ -106,7 +106,7 @@ let Tlist_WinWidth = winwidth(0) / 2
 
 " ================= Configure YouCompleteMe =================
 let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " This represses the confirmation of loading a .ycm_extra_conf file.
 " It should probably be left alone, but it is annoying to always confirm when
