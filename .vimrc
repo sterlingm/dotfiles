@@ -1,3 +1,6 @@
+" **********************************************************
+" Everything in this ******* section is *required* for vundle for work properly
+
 " debian.vim sets 'nocompatible'. Setting 'compatible' changes numerous
 " options, so any other options should be set AFTER explicitly setting 'compatible'.
 " Set nocompatible for everything to enforce this
@@ -17,6 +20,8 @@ Bundle 'Valloric/youcompleteme'
 
 " detect file type
 filetype plugin indent on
+
+" **********************************************************
 
 " Allows Vim-related packages in Debian to work
 runtime! debian.vim
