@@ -1,3 +1,6 @@
+" **********************************************************
+" Everything in this ******* section is *required* for vundle for work properly
+
 " debian.vim sets 'nocompatible'. Setting 'compatible' changes numerous
 " options, so any other options should be set AFTER explicitly setting 'compatible'.
 " Set nocompatible for everything to enforce this
@@ -17,6 +20,8 @@ Bundle 'Valloric/youcompleteme'
 
 " detect file type
 filetype plugin indent on
+
+" **********************************************************
 
 " Allows Vim-related packages in Debian to work
 runtime! debian.vim
@@ -106,7 +111,7 @@ let Tlist_WinWidth = winwidth(0) / 2
 
 " ================= Configure YouCompleteMe =================
 let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " This represses the confirmation of loading a .ycm_extra_conf file.
 " It should probably be left alone, but it is annoying to always confirm when
