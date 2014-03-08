@@ -118,6 +118,8 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 " working on my own projects everyday.
 let g:ycm_confirm_extra_conf = 1
 
+" This closes the preview window that appears after you have selected a
+" completion option
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
