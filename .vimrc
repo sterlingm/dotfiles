@@ -28,6 +28,7 @@ filetype plugin indent on
 " **********************************************************
 
 
+
 " Set highlighting for syntax
 if has("syntax")
   syntax on
@@ -117,7 +118,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 " This represses the confirmation of loading a .ycm_extra_conf file.
 " It should probably be left alone, but it is annoying to always confirm when
 " working on my own projects everyday.
-let g:ycm_confirm_extra_conf = 0
+let g:ycm_confirm_extra_conf = 1
 
 " This closes the preview window that appears after you have selected a
 " completion option
@@ -150,3 +151,4 @@ noremap <F6> :TT<cr>
     noremap k n|noremap K N
 
   " **************************************** "
+
