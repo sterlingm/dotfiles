@@ -1,3 +1,7 @@
+
+" Allows Vim-related packages in Debian to work
+runtime! debian.vim
+
 " **********************************************************
 " Everything in this ******* section is *required* for vundle for work properly
 
@@ -22,9 +26,6 @@ Bundle 'Valloric/youcompleteme'
 filetype plugin indent on
 
 " **********************************************************
-
-" Allows Vim-related packages in Debian to work
-runtime! debian.vim
 
 
 " Set highlighting for syntax
@@ -116,7 +117,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 " This represses the confirmation of loading a .ycm_extra_conf file.
 " It should probably be left alone, but it is annoying to always confirm when
 " working on my own projects everyday.
-let g:ycm_confirm_extra_conf = 1
+let g:ycm_confirm_extra_conf = 0
 
 " This closes the preview window that appears after you have selected a
 " completion option
@@ -149,4 +150,3 @@ noremap <F6> :TT<cr>
     noremap k n|noremap K N
 
   " **************************************** "
-
