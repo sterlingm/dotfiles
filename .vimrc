@@ -1,3 +1,7 @@
+
+" Allows Vim-related packages in Debian to work
+runtime! debian.vim
+
 " **********************************************************
 " Everything in this ******* section is *required* for vundle for work properly
 
@@ -11,7 +15,6 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
@@ -24,12 +27,6 @@ filetype plugin indent on
 
 " **********************************************************
 
-
-" Allows Vim-related packages in Debian to work
-runtime! debian.vim
-
-" Detect Python files and use the ftplugin configuration for them
-autocmd FileType python run ftplugin/python.vim
 
 
 " Set highlighting for syntax
