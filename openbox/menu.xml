@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
+	<menu id="apps-multimedia-menu" label="Multimedia">
+		<item label="Deluge">
+			<action name="Execute">
+				<execute>/usr/bin/deluge</execute>
+			</action>
+		</item>
+		<item label="VLC">
+			<action name="Execute">
+				<execute>/usr/bin/vlc</execute>
+			</action>
+		</item>
+	</menu>
 	<menu id="apps-games-menu" label="Games">
 		<item label="Steam">
 			<action name="Execute">
 				<execute>/usr/bin/steam</execute>
-			</action>
-		</item>
-	</menu>
-	<menu id="None-112210" label="New Menu">
-		<item label="New Item">
-			<action name="Execute">
-				<execute>command</execute>
 			</action>
 		</item>
 	</menu>
@@ -45,16 +50,6 @@
 			</action>
 		</item>
 	</menu>
-	<menu id="apps-editors-menu" label="Editors">
-		<item label="GEdit">
-			<action name="Execute">
-				<command>gedit</command>
-				<startupnotify>
-					<enabled>yes</enabled>
-				</startupnotify>
-			</action>
-		</item>
-	</menu>
 	<menu id="apps-term-menu" label="Terminals">
 		<item label="Terminator">
 			<action name="Execute">
@@ -68,14 +63,6 @@
 		</item>
 	</menu>
 	<menu id="apps-fileman-menu" label="File Managers">
-		<item label="Nautilus">
-			<action name="Execute">
-				<command>nautilus --no-desktop --browser</command>
-				<startupnotify>
-					<enabled>yes</enabled>
-				</startupnotify>
-			</action>
-		</item>
 		<item label="Thunar">
 			<action name="Execute">
 				<command>Thunar</command>
@@ -107,15 +94,13 @@
 	<menu id="root-menu" label="Openbox 3">
 		<separator label="Applications"/>
 		<menu id="apps-accessories-menu"/>
-		<menu id="apps-programming-menu"/>
-		<menu id="apps-games-menu"/>
-		<menu id="apps-editors-menu"/>
-		<menu id="apps-graphics-menu"/>
-		<menu id="apps-net-menu"/>
-		<menu id="apps-office-menu"/>
-		<menu id="apps-multimedia-menu"/>
-		<menu id="apps-term-menu"/>
 		<menu id="apps-fileman-menu"/>
+		<menu id="apps-games-menu"/>
+		<menu id="apps-net-menu"/>
+		<menu id="apps-multimedia-menu"/>
+		<menu id="apps-office-menu"/>
+		<menu id="apps-programming-menu"/>
+		<menu id="apps-term-menu"/>
 		<separator label="System"/>
 		<menu id="system-menu"/>
 		<separator/>
