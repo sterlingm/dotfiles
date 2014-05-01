@@ -1,3 +1,5 @@
+" Configuration for python in vim "
+
 set tabstop=2
 set expandtab
 set shiftwidth=2
