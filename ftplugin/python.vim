@@ -1,8 +1,9 @@
 " Configuration for python in vim "
 
-set tabstop=2
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set nosmartindent
+setlocal tabstop=2
+setlocal expandtab
+setlocal shiftwidth=4
+setlocal softtabstop=2
+setlocal nosmartindent
+
 
