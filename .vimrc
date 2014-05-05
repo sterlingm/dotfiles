@@ -211,7 +211,7 @@ endfunction
 " Relies on 'check_kb_layout.sh' script
 function! SetLayoutRemaps()
   
-  call system('. check_kb_layout.sh')
+  call system('. ~/check_kb_layout.sh')
   
   if v:shell_error == 1
     call SetNormanRemaps()
