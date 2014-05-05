@@ -158,11 +158,11 @@ function! SetColemakRemaps()
 
     " Remap yank and paste keys
     " j to y
-    " ; to p
     noremap j y|noremap J Y 
 
     " Remap insert keys
     " u to i
+    " y to o
     noremap u i|noremap U I
     noremap y o|noremap Y O
 
@@ -184,7 +184,8 @@ function! SetNormanRemaps()
     noremap gn gj|noremap gi go
 
     " Remap insert keys
-    " r to i, l to o  
+    " r to i
+    " l to o  
     noremap r i|noremap R I
     noremap l o|noremap L O
 
@@ -223,6 +224,7 @@ function! SetLayoutRemaps()
 
 endfunction
 " ========================================= "
+
 
 " Call the remap function
 call SetLayoutRemaps()
