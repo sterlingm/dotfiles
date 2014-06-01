@@ -68,8 +68,6 @@ local layouts =
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier
@@ -103,10 +101,8 @@ end
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 my_misc_menu = {
-  { "manual", terminal .. " -e 'man awesome'" },
-  { "edit config", editor_cmd .. " " .. awesome.conffile},
-  { "restart", awesome.restart },
-  { "quit", awesome.quit }
+  { "restart awesome", awesome.restart },
+  { "manage CUPS", "xdg-open http://localhost:631" },
 }
 
 my_accessories_menu = {
@@ -129,18 +125,17 @@ my_programming_menu = {
 }
 
 my_system_menu = {
-  { "Manage CUPS", "xdg-open http://localhost:631" },
   { "Reboot", "gksudo 'reboot'" },
   { "Shutdown", "gksudo 'shutdown -h now'"}
 }
 
 
 mymainmenu = awful.menu({ items = { 
-        { "awesome", my_awesome_menu, beautiful.awesome_icon },
+        { "Terminal", terminal },
         { "Accessories", my_accessories_menu },
         { "Internet", my_internet_menu },
+        { "Misc", my_misc_menu },
         { "Multimedia", my_multimedia_menu },
-        { "Terminal", terminal },
         { "System", my_system_menu }
                                   }
 })
@@ -173,6 +168,8 @@ mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
                     awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
                     )
+
+-- Create a task bar
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
@@ -211,8 +208,10 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 for s = 1, screen.count() do
+    
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
+
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
