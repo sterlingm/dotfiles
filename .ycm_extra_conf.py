@@ -38,7 +38,7 @@ flags = [
 '-Waddress',
 '-Warray-bounds',
 '-Wc++0x-compat',
-'-Wchar_subscripts',
+'-Wchar-subscripts',
 '-Wimplicit-int',
 '-Wimplicit-function-declaration',
 '-Wformat',
