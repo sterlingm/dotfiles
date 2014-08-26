@@ -34,9 +34,7 @@ filetype plugin indent on
 
 
 " Set highlighting for syntax
-if has("syntax")
-  syntax on
-endif 
+syntax on
 
 " Set colorscheme
 colorscheme elflord 
