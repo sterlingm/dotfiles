@@ -21,6 +21,11 @@ Bundle 'gmarik/vundle'
 " Install youcompleteme
 Bundle 'Valloric/youcompleteme'
 
+" Install NERDTree
+Bundle 'scrooloose/nerdtree'
+
+" Install xmledit
+Bundle 'sukima/xmledit'
 
 " detect file type
 filetype plugin indent on
@@ -102,7 +107,7 @@ let Tlist_Use_Horiz_Window = 1
 " Set the Tlist window height to be half of the overall window height
 " This lets the NERDTree and Taglist share half of the vsplit window space
 " To make the Taglist window be half of the split size, you must also change 
-" taglist.vim in if block: "if g:Tlist_Use_Horiz_Window" (~ line 1287), 
+" taglist.vim in if block: "if g:Tlist_Use_Horiz_Window" (~ line 1350), 
 "                           let win_dir = 'botright' to let win_dir = 'rightb'. 
 " 'botright' will make it take over the bottom of the entire vim window
 let Tlist_WinHeight = winheight(0) / 2
