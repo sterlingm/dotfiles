@@ -5,15 +5,13 @@ source /opt/ros/${ROS_DISTRO}/setup.bash
 
 #source the catkin workspace setup
 source ~/ros_workspace/devel/setup.bash
-
-# Add other ROS packages to ROS_PACKAGE_PATH
-export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:~/ros_packages/src
+source ~/ros_packages/devel/setup.bash
 
 
 # Setup the ROS network variables
 export ROS_PORT=11311
 
-#export ROS_IP=192.168.1.103
+#export ROS_IP=192.168.1.102
 
 #==========================
 #Local testing
