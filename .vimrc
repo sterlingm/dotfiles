@@ -16,16 +16,19 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Install youcompleteme
-Bundle 'Valloric/youcompleteme'
+Plugin 'Valloric/youcompleteme'
 
 " Install NERDTree
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 " Install xmledit
-Bundle 'sukima/xmledit'
+Plugin 'sukima/xmledit'
+
+" Haskell
+Plugin 'dag/vim2hs'
 
 " detect file type
 filetype plugin indent on
@@ -38,7 +41,6 @@ syntax on
 
 " Set colorscheme
 colorscheme elflord 
-
 
 " When we split a window, make sure we can write to that file
 set noreadonly
