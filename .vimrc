@@ -88,6 +88,9 @@ set incsearch
 " Sets the amount of lines to have above or below the cursor at all times
 set scrolloff=2
 
+" Set paste so vim does not retab when pasting
+set paste
+
 " Set the number of text columns to use before wrapping line
 " set columns=80
 
@@ -108,7 +111,7 @@ let Tlist_Use_Horiz_Window = 1
 " This lets the NERDTree and Taglist share half of the vsplit window space
 " To make the Taglist window be half of the split size, you must also change 
 " taglist.vim in if block: "if g:Tlist_Use_Horiz_Window" (~ line 1350), 
-"                           let win_dir = 'botright' to let win_dir = 'rightb'. 
+"                          change let win_dir = 'botright' to let win_dir = 'rightb'. 
 " 'botright' will make it take over the bottom of the entire vim window
 let Tlist_WinHeight = winheight(0) / 2
 let Tlist_WinWidth = winwidth(0) / 2
