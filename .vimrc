@@ -16,11 +16,19 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Install youcompleteme
-Bundle 'Valloric/youcompleteme'
+Plugin 'Valloric/youcompleteme'
 
+" Install NERDTree
+Plugin 'scrooloose/nerdtree'
+
+" Install xmledit
+Plugin 'sukima/xmledit'
+
+" Haskell
+Plugin 'dag/vim2hs'
 
 " detect file type
 filetype plugin indent on
@@ -29,13 +37,10 @@ filetype plugin indent on
 
 
 " Set highlighting for syntax
-if has("syntax")
-  syntax on
-endif 
+syntax on
 
 " Set colorscheme
 colorscheme elflord 
-
 
 " When we split a window, make sure we can write to that file
 set noreadonly
@@ -83,6 +88,9 @@ set incsearch
 " Sets the amount of lines to have above or below the cursor at all times
 set scrolloff=2
 
+" Set paste so vim does not retab when pasting
+set paste
+
 " Set the number of text columns to use before wrapping line
 " set columns=80
 
@@ -102,8 +110,8 @@ let Tlist_Use_Horiz_Window = 1
 " Set the Tlist window height to be half of the overall window height
 " This lets the NERDTree and Taglist share half of the vsplit window space
 " To make the Taglist window be half of the split size, you must also change 
-" taglist.vim in if block: "if g:Tlist_Use_Horiz_Window" (~ line 1287), 
-"                           let win_dir = 'botright' to let win_dir = 'rightb'. 
+" taglist.vim in if block: "if g:Tlist_Use_Horiz_Window" (~ line 1350), 
+"                          change let win_dir = 'botright' to let win_dir = 'rightb'. 
 " 'botright' will make it take over the bottom of the entire vim window
 let Tlist_WinHeight = winheight(0) / 2
 let Tlist_WinWidth = winwidth(0) / 2
