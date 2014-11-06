@@ -6,9 +6,10 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-
 -- Load Debian menu entries
 require("debian.menu")
+
+require("battery")
 
 
 -- Override awesome.quit when we're using GNOME
@@ -21,6 +22,7 @@ awesome.quit = function()
     end
 end
 
+-- Start xcompmgr for tiling
 awful.util.spawn_with_shell("xcompmgr &")
 
 -- {{{ Error handling
@@ -143,6 +145,20 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
+
+-- Create an ACPI widget for battery info 
+mybatterywidget = widget({ type = "textbox" })                                    
+mybatterywidget.text = " | Battery | "                                            
+mybatterywidgettimer = timer({ timeout = 5 })                                     
+mybatterywidgettimer:add_signal("timeout",                                        
+  function()                                                                    
+    fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))                       
+    mybatterywidget.text = " |" .. fh:read("*l") .. " | "                         
+    fh:close()                                                                  
+  end                                                                           
+)                                                                               
+mybatterywidgettimer:start()
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
@@ -211,7 +227,7 @@ for s = 1, screen.count() do
                                           end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = "25" })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -222,6 +238,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        mybatterywidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -387,6 +404,8 @@ awful.rules.rules = {
     --   properties = { tag = tags[1][2] } },
 }
 -- }}}
+--
+
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
