@@ -108,8 +108,8 @@ end
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 my_misc_menu = {
-  { "restart awesome", awesome.restart },
-  { "manage CUPS", "xdg-open http://localhost:631" },
+  { "Restart Awesome", awesome.restart },
+  { "CUPS", "xdg-open http://localhost:631" },
 }
 
 my_accessories_menu = {
@@ -117,13 +117,13 @@ my_accessories_menu = {
 }
 
 my_internet_menu = {
-  { "Google Chrome", "google-chrome" }
+  { "Chrome", "google-chrome" }
 }
 
 my_system_menu = {
   { "Logout", awesome.quit},
-  { "Reboot", "gksudo 'reboot'" },
-  { "Shutdown", "gksudo 'shutdown -h now'"}
+  { "Reboot", "gksudo 'reboot now'" },
+  { "Shutdown", "gksudo 'shutdown -P now'"}
 }
 
 
@@ -132,9 +132,9 @@ mymainmenu = awful.menu({ items = {
         { "Accessories", my_accessories_menu },
         { "Internet", my_internet_menu },
         { "Misc", my_misc_menu },
-        { "Multimedia", my_multimedia_menu },
+        --{ "Multimedia", my_multimedia_menu },
         { "System", my_system_menu }
-                                  }
+                                  }, width="150" 
 })
 
 mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
@@ -158,6 +158,7 @@ mybatterywidgettimer:add_signal("timeout",
   end                                                                           
 )                                                                               
 mybatterywidgettimer:start()
+
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -255,17 +256,29 @@ root.buttons(awful.util.table.join(
 -- }}}
 
 -- {{{ Key bindings
+    -- ***** Changed to fit Norman keyboard layout *****
+    -- s/"n"/"p"
+    -- s/"j"/"n"
+    -- s/"k"/"i"
+    -- s/"l"/"o"
+    -- Change awful.client.movetoscreen from "o" to "l"
+    -- Leaving the "r" keybindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey }, "Next",  function () awful.client.moveresize( 20,  20, -40, -40) end),
+    awful.key({ modkey }, "Prior", function () awful.client.moveresize(-20, -20,  40,  40) end),
+    awful.key({ modkey }, "Up",    function () awful.client.moveresize(  0, -20,   0,   0) end),
+    awful.key({ modkey }, "Down",  function () awful.client.moveresize(  0,  20,   0,   0) end),
+    awful.key({ modkey }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
+    awful.key({ modkey }, "Right", function () awful.client.moveresize( 20,   0,   0,   0) end),
+       
 
-    awful.key({ modkey,           }, "j",
+    awful.key({ modkey,           }, "n",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "k",
+    awful.key({ modkey,           }, "i",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
@@ -274,9 +287,9 @@ globalkeys = awful.util.table.join(
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Shift"   }, "i", function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey, "Control" }, "n", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control" }, "i", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -291,16 +304,16 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "o",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey, "Shift"   }, "o",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey, "Control" }, "o",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
-    awful.key({ modkey, "Control" }, "n", awful.client.restore),
+    awful.key({ modkey, "Control" }, "p", awful.client.restore),
 
     -- Prompt
     -- awful.key({ modkey },            "r",    function () mypromptbox[mouse.screen]:run() end),
@@ -320,10 +333,10 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "l",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
-    awful.key({ modkey,           }, "n",
+    awful.key({ modkey,           }, "p",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
