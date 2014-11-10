@@ -10,6 +10,7 @@ require("naughty")
 require("debian.menu")
 
 require("battery")
+require("widget")
 
 
 -- Override awesome.quit when we're using GNOME
@@ -237,6 +238,7 @@ for s = 1, screen.count() do
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
+        pulseWidget,
         mylayoutbox[s],
         mytextclock,
         mybatterywidget,
@@ -245,7 +247,7 @@ for s = 1, screen.count() do
         layout = awful.widget.layout.horizontal.rightleft
     }
 end
--- }}} 
+-- }}}
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
@@ -272,6 +274,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
     awful.key({ modkey }, "Right", function () awful.client.moveresize( 20,   0,   0,   0) end),
        
+       -- Configure the hotkeys.
+    --awful.key({ }, "XF86AudioRaiseVolume",  pulseWidget.Up),
+    --awful.key({ }, "XF86AudioLowerVolume",  pulseWidget.Down),
+    --awful.key({ }, "XF86AudioMute",         pulseWidget.ToggleMute),
 
     awful.key({ modkey,           }, "n",
         function ()
@@ -286,7 +292,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
+    awful.key({ modkey, "Shift"   }, "n", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "i", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "n", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "i", function () awful.screen.focus_relative(-1) end),
