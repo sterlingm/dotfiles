@@ -5,12 +5,15 @@ require("awful.rules")
 -- Theme handling library
 require("beautiful")
 -- Notification library
-require("naughty")
+local naughty = require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
 require("battery")
 require("widget")
+
+
+naughty.config.presets.normal.font = "Verdana 12"
 
 
 -- Override awesome.quit when we're using GNOME
