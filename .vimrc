@@ -36,6 +36,8 @@ filetype plugin indent on
 " **********************************************************
 
 
+
+
 " Set highlighting for syntax
 syntax on
 
@@ -53,7 +55,7 @@ set ignorecase
 set smartcase
 
 " Makes the lines auto indent		
-set smartindent
+"set smartindent
 
 " Makes tab key use spaces instead of literal tabs
 set expandtab
@@ -87,9 +89,6 @@ set incsearch
 
 " Sets the amount of lines to have above or below the cursor at all times
 set scrolloff=2
-
-" Set the number of text columns to use before wrapping line
-" set columns=80
 
 
 
