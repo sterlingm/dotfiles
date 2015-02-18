@@ -45,8 +45,9 @@ set background=dark
 
 " Set colorscheme
 set t_Co=256
-colorscheme dante 
+colorscheme elflord 
 hi StatusLine ctermbg=black ctermfg=white
+hi ModeMsg ctermbg=black ctermfg=white
 "hi VertSplit ctermbg=black ctermfg=white
 "hi SignColumn ctermbg=grey
 
@@ -91,6 +92,8 @@ set history=50
 " Sets the status line to always be present
 set laststatus=2
 
+" Set text wrapping
+set wrap
 
 " Enables incremental searching
 set incsearch
