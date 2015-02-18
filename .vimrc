@@ -83,9 +83,11 @@ set history=50
 " Sets the status line to always be present
 set laststatus=2
 
+
+set t_Co=256
 hi StatusLine ctermbg=black ctermfg=white
-hi VertSplit ctermbg=black ctermfg=white
-hi SignColumn ctermbg=grey
+"hi VertSplit ctermbg=black ctermfg=white
+"hi SignColumn ctermbg=grey
 
 " Enables incremental searching
 set incsearch
