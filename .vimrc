@@ -40,14 +40,22 @@ filetype plugin indent on
 " Set highlighting for syntax
 syntax on
 
+" If using a dark background within the editing area and syntax highlighting
+set background=dark
+
 " Set colorscheme
-colorscheme elflord 
+set t_Co=256
+colorscheme dante 
+hi StatusLine ctermbg=black ctermfg=white
+"hi VertSplit ctermbg=black ctermfg=white
+"hi SignColumn ctermbg=grey
+
+" When using gvim, remove the toggle and menu bars
+set guioptions-=m
+set guioptions-=T
 
 " When we split a window, make sure we can write to that file
 set noreadonly
-
-" If using a dark background within the editing area and syntax highlighting
-set background=dark
 
 " Make the finding feature not worry about case until you use capital letter
 set ignorecase
@@ -83,11 +91,6 @@ set history=50
 " Sets the status line to always be present
 set laststatus=2
 
-
-set t_Co=256
-hi StatusLine ctermbg=black ctermfg=white
-"hi VertSplit ctermbg=black ctermfg=white
-"hi SignColumn ctermbg=grey
 
 " Enables incremental searching
 set incsearch
