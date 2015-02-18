@@ -37,7 +37,6 @@ filetype plugin indent on
 
 
 
-
 " Set highlighting for syntax
 syntax on
 
@@ -55,7 +54,7 @@ set ignorecase
 set smartcase
 
 " Makes the lines auto indent		
-"set smartindent
+set smartindent
 
 " Makes tab key use spaces instead of literal tabs
 set expandtab
@@ -83,6 +82,10 @@ set history=50
 
 " Sets the status line to always be present
 set laststatus=2
+
+hi StatusLine ctermbg=black ctermfg=white
+hi VertSplit ctermbg=black ctermfg=white
+hi SignColumn ctermbg=grey
 
 " Enables incremental searching
 set incsearch
