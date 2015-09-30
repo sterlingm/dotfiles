@@ -416,6 +416,7 @@ awful.key({ modkey }, "Up",    function () awful.client.moveresize(  0, -20,   0
 awful.key({ modkey }, "Down",  function () awful.client.moveresize(  0,  20,   0,   0) end),
 awful.key({ modkey }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
 awful.key({ modkey }, "Right", function () awful.client.moveresize( 20,   0,   0,   0) end),
+
    
    -- Configure the hotkeys.
 --awful.key({ }, "XF86AudioRaiseVolume",  pulseWidget.Up),
@@ -466,7 +467,8 @@ awful.key({ modkey, "Control" }, "p", awful.client.restore),
 
 -- Prompt
 -- awful.key({ modkey },            "r",    function () mypromptbox[mouse.screen]:run() end),
-awful.key({ modkey },  "r", function () awful.util.spawn("dmenu_run") end),
+awful.key({ modkey }, "r", function () awful.util.spawn("dmenu_run") end),
+awful.key({ modkey, "Control" }, "c", function () awful.util.spawn("gnome-control-center")  end),
 
 awful.key({ modkey }, "x",
           function ()
