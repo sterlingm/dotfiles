@@ -1,12 +1,15 @@
 
 #setup the ROS environment variables
-export ROS_DISTRO=indigo
+export ROS_DISTRO=kinetic
 source /opt/ros/${ROS_DISTRO}/setup.bash
 
+export ROS_WORKSPACE=~/ros_workspace
+
 #source the catkin workspace setup
-source ~/ros_workspace/devel/setup.bash
+source ${ROS_WORKSPACE}/devel/setup.bash
 source ~/ros_packages/devel/setup.bash
 
+export ROS_WORKSPACE=~/ros_workspace
 
 # Setup the ROS network variables
 export ROS_PORT=11311
