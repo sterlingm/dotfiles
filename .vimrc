@@ -21,6 +21,9 @@ Plugin 'gmarik/vundle'
 " Install youcompleteme
 Plugin 'Valloric/youcompleteme'
 
+" Install Taglist
+Plugin 'vim-scripts/taglist.vim'
+
 " Install NERDTree
 Plugin 'scrooloose/nerdtree'
 
@@ -45,7 +48,11 @@ set background=dark
 
 " Set colorscheme
 set t_Co=256
-colorscheme elflord 
+
+set background=dark
+colorscheme elflord
+
+
 hi StatusLine ctermbg=black ctermfg=white
 hi ModeMsg ctermbg=black ctermfg=white
 "hi VertSplit ctermbg=black ctermfg=white
@@ -117,7 +124,7 @@ let Tlist_Use_Horiz_Window = 1
 " Set the Tlist window height to be half of the overall window height
 " This lets the NERDTree and Taglist share half of the vsplit window space
 " To make the Taglist window be half of the split size, you must also change 
-" taglist.vim in if block: "if g:Tlist_Use_Horiz_Window" (~ line 1350), 
+" taglist.vim in if block: "if g:Tlist_Use_Horiz_Window" (~ line 1280), 
 "                          change let win_dir = 'botright' to let win_dir = 'rightb'. 
 " 'botright' will make it take over the bottom of the entire vim window
 let Tlist_WinHeight = winheight(0) / 2
@@ -130,7 +137,7 @@ let Tlist_WinWidth = winwidth(0) / 2
 
 " ================= Configure YouCompleteMe =================
 let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/ros_workspace/.ycm_extra_conf.py'
 
 " This represses the confirmation of loading a .ycm_extra_conf file.
 " It should probably be left alone, but it is annoying to always confirm when
@@ -167,23 +174,29 @@ function! SetColemakRemaps()
     noremap n j|noremap e k|noremap i l
     noremap gn gj|noremap ge gk
 
-    " Remap undo key
-    " l to u
+    " Remap undo (u) and replace (r) keys
+    " l to u, p to r
     noremap l u|noremap L U
+    noremap p R|noremap P R
 
-    " Remap yank and paste keys
-    " j to y
+    " Remap yank (y) and cut (d) and paste (p) keys
     noremap j y|noremap J Y 
+    noremap ; p|noremap : P
+    noremap s d|noremap S D
 
-    " Remap insert keys
-    " u to i
-    " y to o
+    " Remap : for running commands
+    noremap o ;|noremap O :
+
+    " Remap insert keys (i,o)
     noremap u i|noremap U I
     noremap y o|noremap Y O
 
-    " Remap next key for search
-    " k to n
+    " Remap next (n) key for search
     noremap k n|noremap K N
+
+    " Other navigation keys
+    noremap f e|noremap F E
+    noremap d g|noremap D G
 
 endfunction
 " ========================================= "
