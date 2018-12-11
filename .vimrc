@@ -1,6 +1,6 @@
 
 " Allows Vim-related packages in Debian to work
-runtime! debian.vim
+"runtime! debian.vim
 
 " **********************************************************
 " Everything in this ******* section is *required* for vundle for work properly
@@ -12,26 +12,27 @@ set nocompatible
 filetype off
 
 " Set runtime path to include vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set rtp+=~/.vim/bundle/vundle/
+set rtp+=/usr/share/vim/vimfiles/autoload/vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " Install youcompleteme
-Plugin 'Valloric/youcompleteme'
+"Plugin 'Valloric/youcompleteme'
 
 " Install Taglist
-Plugin 'vim-scripts/taglist.vim'
+"Plugin 'vim-scripts/taglist.vim'
 
 " Install NERDTree
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 
 " Install xmledit
-Plugin 'sukima/xmledit'
+"Plugin 'sukima/xmledit'
 
 " Haskell
-Plugin 'dag/vim2hs'
+"Plugin 'dag/vim2hs'
 
 " detect file type
 filetype plugin indent on
