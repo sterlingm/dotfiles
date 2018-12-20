@@ -12,8 +12,8 @@ set nocompatible
 filetype off
 
 " Set runtime path to include vundle
-" set rtp+=~/.vim/bundle/vundle/
-set rtp+=/usr/share/vim/vimfiles/autoload/vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=/usr/share/vim/vimfiles/autoload/vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -205,58 +205,8 @@ endfunction
 
 
 
-
-" ============ Norman remappings ============ "
-function! SetNormanRemaps()
-    " Remap the scrolling keys for norman
-    noremap n j|noremap i k|noremap o l|noremap y h
-    noremap gn gj|noremap gi go
-
-    " Remap insert keys
-    " r to i
-    " l to o  
-    noremap r i|noremap R I
-    noremap l o|noremap L O
-
-    " Remap yank and paste keys
-    " j to y
-    " f to p (this is different from conventional 
-    "  paste location because ; is in p's location)
-    "  f (r in qwerty) is p in Colemak so I'm used to that mapping
-    noremap j y|noremap J Y
-    noremap f p|noremap F P
-
-    " Remap next key for search
-    " p to n
-    noremap p n|noremap P N
-
-endfunction
-" ========================================= "
-
-
-
-
-" Set key remaps based on which keyboard layout
-" is in use - works only for Colemak and Norman layouts
-" Relies on 'check_kb_layout.sh' script
-function! SetLayoutRemaps()
-  
-  call system('. ~/check_kb_layout.sh')
-  
-  if v:shell_error == 1
-    call SetNormanRemaps()
-
-  elseif v:shell_error == 2
-    call SetColemakRemaps()
-  
-  endif
-
-endfunction
-" ========================================= "
-
-
 " Call the remap function
-call SetLayoutRemaps()
+call SetColemakRemaps()
 
 
  
